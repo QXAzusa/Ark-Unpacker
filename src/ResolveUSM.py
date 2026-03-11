@@ -94,6 +94,20 @@ class UsmProcessor:
             Logger.error(f'ResolveUSM: Media extraction failed for "{self._usm_path}": {stacktrace()}')
             raise e
 
+    @staticmethod
+    def _get_v_codec_candidates(v_codec: str) -> List[str]:
+        """Gets a list of video codec candidates including hardware accelerated ones."""
+        v_codec_lower = v_codec.lower()
+        if v_codec_lower in ["h264", "libx264"]:
+            return ["h264_nvenc", "h264_qsv", "h264_amf", v_codec]
+        elif v_codec_lower in ["hevc", "h265", "libx265"]:
+            return ["hevc_nvenc", "hevc_qsv", "hevc_amf", v_codec]
+        elif v_codec_lower in ["vp9", "libvpx-vp9"]:
+            return ["vp9_qsv", v_codec]
+        elif v_codec_lower in ["av1", "libaom-av1"]:
+            return ["av1_nvenc", "av1_qsv", "av1_amf", v_codec]
+        return [v_codec]
+
     def convert_formats(
         self,
         output_dir: str,
@@ -118,21 +132,28 @@ class UsmProcessor:
         """
         if not v and not a:
             return
+            
+        v_codec_candidates = self._get_v_codec_candidates(v_codec)
 
         if v and not a:
             # Request to convert video only (silent video)
             for video_path in self.video_paths:
                 out_path = osp.join(output_dir, f"{osp.splitext(osp.basename(video_path))[0]}{v_ext}")
-                try:
-                    ffmpeg.input(video_path).output(
-                        out_path,
-                        vcodec=v_codec,
-                        y=None,
-                    ).run(**FFMPEG_RUN_PARAMS)
-                    Logger.debug(f'ResolveUSM: Conversion (v) completed: "{out_path}"')
-                except ffmpeg.Error as e:
-                    Logger.error(f'ResolveUSM: Conversion (v) failed for "{video_path}": {stacktrace()}')
-                    raise e
+                for codec in v_codec_candidates:
+                    try:
+                        ffmpeg.input(video_path, hwaccel="auto").output(
+                            out_path,
+                            vcodec=codec,
+                            y=None,
+                        ).run(**FFMPEG_RUN_PARAMS)
+                        Logger.debug(f'ResolveUSM: Conversion (v) completed with codec "{codec}": "{out_path}"')
+                        break
+                    except ffmpeg.Error as e:
+                        if codec == v_codec_candidates[-1]:
+                            Logger.error(f'ResolveUSM: Conversion (v) failed for "{video_path}": {stacktrace()}')
+                            raise e
+                        else:
+                            Logger.debug(f'ResolveUSM: Conversion (v) failed with codec "{codec}" for "{video_path}", falling back...')
 
         elif not v and a:
             # Request to convert audio only
@@ -158,16 +179,21 @@ class UsmProcessor:
                         output_dir,
                         f"{osp.splitext(osp.basename(video_path))[0]}{v_ext}",
                     )
-                    try:
-                        ffmpeg.input(video_path).output(
-                            out_path,
-                            vcodec=v_codec,
-                            y=None,
-                        ).run(**FFMPEG_RUN_PARAMS)
-                        Logger.debug(f'ResolveUSM: Conversion (v) completed: "{out_path}"')
-                    except ffmpeg.Error as e:
-                        Logger.error(f'ResolveUSM: Conversion (v) failed for "{video_path}": {stacktrace()}')
-                        raise e
+                    for codec in v_codec_candidates:
+                        try:
+                            ffmpeg.input(video_path, hwaccel="auto").output(
+                                out_path,
+                                vcodec=codec,
+                                y=None,
+                            ).run(**FFMPEG_RUN_PARAMS)
+                            Logger.debug(f'ResolveUSM: Conversion (v) completed with codec "{codec}": "{out_path}"')
+                            break
+                        except ffmpeg.Error as e:
+                            if codec == v_codec_candidates[-1]:
+                                Logger.error(f'ResolveUSM: Conversion (v) failed for "{video_path}": {stacktrace()}')
+                                raise e
+                            else:
+                                Logger.debug(f'ResolveUSM: Conversion (v) failed with codec "{codec}" for "{video_path}", falling back...')
             elif len(self.video_paths) == len(self.audio_paths):
                 # Equal counts, merge them sequentially
                 for video_path, audio_path in zip(self.video_paths, self.audio_paths):
@@ -176,25 +202,30 @@ class UsmProcessor:
                         f"{osp.splitext(osp.basename(video_path))[0]}{v_ext}",
                     )
 
-                    try:
-                        # Concat video and audio
-                        ffmpeg.concat(
-                            ffmpeg.input(video_path),
-                            ffmpeg.input(audio_path),
-                            v=1,
-                            a=1,
-                        ).output(
-                            out_path,
-                            vcodec=v_codec,
-                            acodec=a_codec,
-                            y=None,
-                        ).run(**FFMPEG_RUN_PARAMS)
-                        Logger.debug(f'ResolveUSM: Conversion (va) completed: "{out_path}"')
-                    except ffmpeg.Error as e:
-                        Logger.error(
-                            f'ResolveUSM: Conversion (va) failed for "{video_path}" + "{audio_path}": {stacktrace()}'
-                        )
-                        raise e
+                    for codec in v_codec_candidates:
+                        try:
+                            # Concat video and audio
+                            ffmpeg.concat(
+                                ffmpeg.input(video_path, hwaccel="auto"),
+                                ffmpeg.input(audio_path),
+                                v=1,
+                                a=1,
+                            ).output(
+                                out_path,
+                                vcodec=codec,
+                                acodec=a_codec,
+                                y=None,
+                            ).run(**FFMPEG_RUN_PARAMS)
+                            Logger.debug(f'ResolveUSM: Conversion (va) completed with codec "{codec}": "{out_path}"')
+                            break
+                        except ffmpeg.Error as e:
+                            if codec == v_codec_candidates[-1]:
+                                Logger.error(
+                                    f'ResolveUSM: Conversion (va) failed for "{video_path}" + "{audio_path}": {stacktrace()}'
+                                )
+                                raise e
+                            else:
+                                Logger.debug(f'ResolveUSM: Conversion (va) failed with codec "{codec}" for "{video_path}" + "{audio_path}", falling back...')
             else:
                 # Mismatched counts and audio is not empty
                 raise ValueError("Mismatched video and audio counts")
