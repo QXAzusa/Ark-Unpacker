@@ -41,7 +41,7 @@ class ThreadCtrl:
     ):
         """Creates a sub thread and run it."""
         while self.count_subthread() >= self.__max:
-            pass
+            time.sleep(0.05)
         ts = threading.Thread(
             target=fun,
             args=args if args is not None else (),
