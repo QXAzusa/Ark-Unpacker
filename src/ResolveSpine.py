@@ -1,6 +1,6 @@
 # Copyright (c) 2022-2026, Harry Huang
 # @ BSD 3-Clause License
-from enum import StrEnum
+from enum import Enum
 from typing import Callable, Dict, List, Optional, Sequence, Union
 
 import os.path as osp
@@ -20,7 +20,7 @@ from .utils.TaskUtils import ThreadCtrl, UICtrl, TaskReporter, TaskReporterTrack
 SDPathID2NamesMap = Dict[int, Union[str, List[str]]]
 
 
-class SpineType(StrEnum):
+class SpineType(str, Enum):
     UNKNOWN = "Unknown"
     BUILDING = "Building"
     BATTLE_FRONT = "BattleFront"
