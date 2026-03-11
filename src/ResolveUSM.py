@@ -204,13 +204,10 @@ class UsmProcessor:
 
                     for codec in v_codec_candidates:
                         try:
-                            # Concat video and audio
-                            ffmpeg.concat(
+                            # Merge video and audio
+                            ffmpeg.output(
                                 ffmpeg.input(video_path, hwaccel="auto"),
                                 ffmpeg.input(audio_path),
-                                v=1,
-                                a=1,
-                            ).output(
                                 out_path,
                                 vcodec=codec,
                                 acodec=a_codec,

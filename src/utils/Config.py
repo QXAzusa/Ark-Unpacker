@@ -46,10 +46,10 @@ class Config:
         "min_spare_memory_mb": 256,
         "performance_level": PerformanceLevel.STANDARD,
         "usm_encoding": "gbk",
-        "usm_export_video_codec": "vp9",
-        "usm_export_audio_codec": "libvorbis",
+        "usm_export_video_codec": "copy",
+        "usm_export_audio_codec": "copy",
         "usm_export_video_ext": ".mkv",
-        "usm_export_audio_ext": ".ogg",
+        "usm_export_audio_ext": ".wav",
         "export_encoding": "utf-8",
         "export_json_indent": 4,
     }
