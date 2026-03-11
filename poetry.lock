@@ -14,7 +14,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -31,7 +31,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -92,7 +92,7 @@ tests = ["imagehash (>=4.3.1)", "pillow (>=10.4.0)", "psutil (>=6.0.0)", "pytest
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -109,7 +109,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -224,7 +224,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -244,7 +244,7 @@ six = ">=1.9.0"
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -304,7 +304,7 @@ tests = ["imagehash (>=4.3.1)", "pillow (>=10.4.0)", "pytest (>=8.3.3)", "textur
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -327,7 +327,7 @@ dev = ["Sphinx (==2.1.0)", "future (==0.17.1)", "numpy (==1.16.4)", "pytest (==4
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -343,7 +343,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -378,7 +378,7 @@ tests = ["pytest"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -423,7 +423,7 @@ tqdm = ["tqdm"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -440,7 +440,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -517,7 +517,7 @@ tests = ["psutil", "pytest (!=3.3.0)", "pytest-cov"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -538,7 +538,7 @@ altgraph = ">=0.17"
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -608,7 +608,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -625,7 +625,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -643,7 +643,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -773,7 +773,7 @@ xmp = ["defusedxml"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -813,7 +813,7 @@ test = ["psleak", "pytest", "pytest-instafail", "pytest-xdist", "pywin32 ; os_na
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -869,7 +869,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -889,7 +889,7 @@ dev = ["build (>=1.0.0)", "pytest (>=8.0.0)", "pytest-cov (>=4.1.0)", "pytest-da
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -906,7 +906,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -946,7 +946,7 @@ hook-testing = ["execnet (>=1.5.0)", "psutil", "pytest (>=2.7.3)"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -967,7 +967,7 @@ setuptools = ">=42.0.0"
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -987,7 +987,7 @@ six = ">=1.5"
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1007,7 +1007,7 @@ dev = ["backports.zoneinfo ; python_version < \"3.9\"", "black", "build", "freez
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1025,7 +1025,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1051,7 +1051,7 @@ type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.deve
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1068,7 +1068,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1085,7 +1085,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1195,7 +1195,7 @@ tests = ["pillow (>=10.4.0)", "pytest (>=8.3.3)"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1212,7 +1212,7 @@ files = [
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1316,7 +1316,7 @@ ttgen = ["typetreegeneratorapi (>=0.0.10)"]
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [[package]]
@@ -1336,7 +1336,7 @@ ffmpeg-python = ">=0.2.0,<0.3.0"
 
 [package.source]
 type = "legacy"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple"
 reference = "PyPI-Tsinghua"
 
 [metadata]
